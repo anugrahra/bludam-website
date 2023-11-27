@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Filament\Resources\HerosectionResource\Pages;
+namespace App\Filament\Resources\AboutsectionResource\Pages;
 
-use App\Filament\Resources\HerosectionResource;
-use App\Models\herosection;
 use Filament\Pages\Actions;
-use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Storage;
+use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\AboutsectionResource;
+use App\Models\aboutsection;
 
-class EditHerosection extends EditRecord
+class EditAboutsection extends EditRecord
 {
-    protected static string $resource = HerosectionResource::class;
+    protected static string $resource = AboutsectionResource::class;
 
     protected function getActions(): array
     {
         return [
             Actions\DeleteAction::make()->after(
-                function(herosection $record){
+                function(aboutsection $record){
                     if($record->background) {
                         Storage::disk('public')->delete($record->background);
                     }
