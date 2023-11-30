@@ -17,7 +17,7 @@ class SettingResource extends Resource
 {
     protected static ?string $model = Setting::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-cog';
 
     public static function form(Form $form): Form
     {
@@ -39,8 +39,13 @@ class SettingResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->form(function(Setting $record){
-                    switch(){
-                        
+                    switch($record->type){
+                        case 'text':
+                            return [Forms\Components\TextInput::make('value')->label($record->label)];
+                            break;
+                        case 'longtext':
+                            return [Forms\Components\RichEditor::make('value')->label($record->label)];
+                            break;    
                     }
                 }),
                 // Tables\Actions\DeleteAction::make(),

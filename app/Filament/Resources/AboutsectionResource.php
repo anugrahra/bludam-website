@@ -20,7 +20,7 @@ class AboutsectionResource extends Resource
 {
     protected static ?string $model = Aboutsection::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     public static function form(Form $form): Form
     {
@@ -34,7 +34,6 @@ class AboutsectionResource extends Resource
                     ->required()->image()->disk('public'),
                 Forms\Components\RichEditor::make('content')
                     ->required()
-                    ->maxLength(255)
             ])
         ]);
     }
