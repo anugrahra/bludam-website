@@ -52,9 +52,9 @@ $herodata = get_hero_data();
     </nav>
     <!-- navbar end -->
 
-   <section>
-    @yield('container')
-   </section>
+    {{-- content --}}
+    @yield('content')
+    {{-- content end --}}
 
     <!-- footer -->
     <footer>
@@ -66,15 +66,15 @@ $herodata = get_hero_data();
         <a href="#"><i data-feather="twitter"></i></a>
       </div>
       <div class="links">
-        <a href="#home">Home</a>
-        <a href="#about">Tentang Kami</a>
-        <a href="#foryou">Untuk Anda</a>
-        <a href="#contact">Kontak</a>
+        <a href="/#home">Home</a>
+        <a href="/#about">Tentang Kami</a>
+        <a href="/foryou">Untuk Anda</a>
+        <a href="/#contact">Kontak</a>
       </div>
 
       <div class="credit">
         <p>
-          Created by <a href="https://heyanugrah.com">anugrah</a> | &copy; 2023
+            BLUDAM &copy; 2023 | powered by <a href="https://heyanugrah.com">H▲A</a>
         </p>
       </div>
     </footer>

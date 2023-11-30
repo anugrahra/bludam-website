@@ -35,6 +35,14 @@ $aboutdata = get_about_data();
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    @if (Session::has('success'))
+      <script>
+        (function() {
+          alert("Pesan anda berhasil terkirim!");
+        })();
+      </script>
+    @endif
+
     <!-- navbar -->
     <nav class="navbar">
       <a href="#" class="navbar-logo">BLUD <span>Air Minum</span> Kota Cimahi</a>
@@ -78,7 +86,7 @@ $aboutdata = get_about_data();
           <div>
             {!! substr($aboutdata->content, 0, 300) !!}
           </div>
-          <a href="/about" class="cta">Baca Selengkapnya</a>
+          <b><a href="/about" class="cta">Baca Selengkapnya</a></b>
         </div>
       </div>
     </section>
@@ -106,7 +114,7 @@ $aboutdata = get_about_data();
             <h3 class="foryou-card-title">Cek Tagihan</h3>
           </div>
         </a>
-        <a href="/under">
+        <a href="/pengaduan">
           <div class="foryou-card">
             <img src="img/foryou/3.jpg" alt="layanan" class="foryou-card-img" />
             <h3 class="foryou-card-title">Pengaduan</h3>
@@ -138,22 +146,28 @@ $aboutdata = get_about_data();
           class="map"
         ></iframe>
 
-        <form action="">
+        <form action="{{url('pesan')}}" method="post">
+          @csrf 
+          @if ($errors->any())
+            <div>
+              <p>nama, no telepon, dan pesan wajib diisi</p>
+            </div>
+           @endif
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="nama" />
+            <input type="text" placeholder="nama" name="nama" id="nama" required/>
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="text" placeholder="email" />
+            <input type="text" placeholder="email (jika ada)" name="email" id="email" />
           </div>
           <div class="input-group">
             <i data-feather="phone"></i>
-            <input type="text" placeholder="phone" />
+            <input type="text" placeholder="phone" name="phone" id="phone" required/>
           </div>
           <div class="input-group">
             <i data-feather="file-text"></i>
-            <input type="text" placeholder="tuliskan pesan anda" />
+            <input type="text" placeholder="tuliskan pesan anda"  name="pesan" id="pesan" required/>
           </div>
           <button type="submit" class="btn">Kirim</button>
         </form>
@@ -179,7 +193,7 @@ $aboutdata = get_about_data();
 
       <div class="credit">
         <p>
-          Created by <a href="https://heyanugrah.com">anugrah</a> | &copy; 2023
+          BLUDAM &copy; 2023 | powered by <a href="https://heyanugrah.com">H▲A</a>
         </p>
       </div>
     </footer>
@@ -188,8 +202,6 @@ $aboutdata = get_about_data();
     <!-- feathers icon -->
     <script>
       feather.replace();
-    </script>
-
     <!-- my javascript -->
     <script src="js/script.js"></script>
   </body>

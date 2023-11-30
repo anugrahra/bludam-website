@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('container')
+@section('content')
 
 @php
 $aboutdata = get_about_data();
