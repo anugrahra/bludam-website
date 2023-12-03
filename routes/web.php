@@ -23,12 +23,16 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/pengaduan', function () {
+Route::get('/formpengaduan', function () {
     return view('pengaduan');
 });
 
 Route::get('/under', function () {
     return view('under');
+});
+
+Route::get('/admin', function () {
+    return view('admin.index');
 });
 
 Route::resource('pesan', pesanController::class);

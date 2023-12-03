@@ -20,7 +20,7 @@ $aboutdata = get_about_data();
 
     <!-- feathers icon -->
     <script src="https://unpkg.com/feather-icons"></script>
-
+    
     <!-- favicon -->
 
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
@@ -55,7 +55,7 @@ $aboutdata = get_about_data();
       </div>
 
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
+        {{-- <a href="#" id="search"><i data-feather="search"></i></a> --}}
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
     </nav>
@@ -114,7 +114,7 @@ $aboutdata = get_about_data();
             <h3 class="foryou-card-title">Cek Tagihan</h3>
           </div>
         </a>
-        <a href="/pengaduan">
+        <a href="/formpengaduan">
           <div class="foryou-card">
             <img src="img/foryou/3.jpg" alt="layanan" class="foryou-card-img" />
             <h3 class="foryou-card-title">Pengaduan</h3>
@@ -202,6 +202,8 @@ $aboutdata = get_about_data();
     <!-- feathers icon -->
     <script>
       feather.replace();
+    </script>
+
     <!-- my javascript -->
     <script src="js/script.js"></script>
   </body>

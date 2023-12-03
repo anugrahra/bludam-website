@@ -19,11 +19,12 @@
               <i data-feather="life-buoy"></i>
               <label for="Jenis_layanan">&nbsp;&nbsp;&nbsp;Jenis Layanan&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</label>
               <select name="jenis_layanan" id="jenis_layanan">
-                <option value="">-- Pilih jenis layanan --</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="Pengaduan Lainnya">-- Pilih jenis layanan --</option>
+                <option value="Pengaduan Lonjakan Air">Pengaduan Lonjakan Air</option>
+                <option value="Pengaduan Kontinuitas Air">Pengaduan Kontinuitas Air</option>
+                <option value="Pengaduan Kualitas Air">Pengaduan Kualitas Air</option>
+                <option value="Pengaduan Kesalahan Pembayaran">Pengaduan Kesalahan Pembayaran</option>
+                <option value="Pengaduan Lainnya">Pengaduan Lainnya</option>
               </select>
             </div>
             <div class="input-group">

@@ -12,7 +12,8 @@ class pengaduanController extends Controller
      */
     public function index()
     {
-        return view('pengaduan');
+        $data = pengaduan::orderBy('id', 'desc')->get();
+        return view('admin.inpengaduan')->with('data', $data);
     }
 
     /**
@@ -44,7 +45,7 @@ class pengaduanController extends Controller
             'detail_pengaduan'=>request('detail_pengaduan'),
         ];
         pengaduan::create($data);
-        return redirect()->to('pengaduan')->with('success', 'Pengaduan anda berhasil dikirim!');
+        return redirect()->to('formpengaduan')->with('success', 'Pengaduan anda berhasil dikirim!');
     }
 
     /**

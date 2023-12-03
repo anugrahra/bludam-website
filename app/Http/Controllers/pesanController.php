@@ -12,7 +12,8 @@ class pesanController extends Controller
      */
     public function index()
     {
-        //
+        $data = pesan::orderBy('id', 'desc')->get();
+        return view('admin.inpesan')->with('data', $data);
     }
 
     /**

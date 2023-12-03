@@ -46,7 +46,7 @@ $herodata = get_hero_data();
       </div>
 
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
+        {{-- <a href="#" id="search"><i data-feather="search"></i></a> --}}
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
     </nav>
