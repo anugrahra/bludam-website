@@ -17,32 +17,30 @@
             @csrf
             <div class="input-group">
               <i data-feather="life-buoy"></i>
-              <label for="Jenis_layanan">&nbsp;&nbsp;&nbsp;Jenis Layanan&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</label>
-              <select name="jenis_layanan" id="jenis_layanan">
+              <label for="jenis_layanan_id">&nbsp;&nbsp;&nbsp;Jenis Layanan&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</label>
+              <select name="jenis_layanan_id" id="jenis_layanan_id">
                 <option value="Pengaduan Lainnya">-- Pilih jenis layanan --</option>
-                <option value="Pengaduan Lonjakan Air">Pengaduan Lonjakan Air</option>
-                <option value="Pengaduan Kontinuitas Air">Pengaduan Kontinuitas Air</option>
-                <option value="Pengaduan Kualitas Air">Pengaduan Kualitas Air</option>
-                <option value="Pengaduan Kesalahan Pembayaran">Pengaduan Kesalahan Pembayaran</option>
-                <option value="Pengaduan Lainnya">Pengaduan Lainnya</option>
+                @foreach ($data as $item)
+                <option value="{{ $item->jns_layanan_id }}">{{ $item->jns_layanan_nama }}</option>
+                @endforeach
               </select>
             </div>
             <div class="input-group">
               <i data-feather="slack"></i>
-              <input type="text" placeholder="No Pelanggan" name="nomor_pelanggan" id="nomor_pelanggan"/>
+              <input type="text" placeholder="No Pelanggan" name="pengaduan_no_sr" id="pengaduan_no_sr"/>
             </div>
             <div class="input-group">
               <i data-feather="user"></i>
-              <input type="text" placeholder="Nama" name="nama_pelapor" id="nama_pelapor"/>
+              <input type="text" placeholder="Nama" name="pengaduan_pelapor" id="pengaduan_pelapor"/>
             </div>
             <div class="input-group">
               <i data-feather="phone"></i>
-              <input type="text" placeholder="No telepon" name="nomor_telepon" id="nomor_telepon"/>
+              <input type="text" placeholder="No telepon" name="pengaduan_kontak" id="pengaduan_kontak"/>
             </div>
             <div class="input-group">
               <i data-feather="file-text"></i>
               {{-- <input type="text" placeholder="tuliskan pesan anda"  name="pesan" id="pesan" required/> --}}
-              <textarea style="width: 100%; max-width: 100%; font-size: 1.7rem;" rows="5"  name="detail_pengaduan" id="detail_pengaduan">tulis detail pengaduan</textarea>
+              <textarea style="width: 100%; max-width: 100%; font-size: 1.7rem;" rows="5"  name="pengaduan_detail" id="pengaduan_detail">tulis detail pengaduan</textarea>
             </div>
             <button type="submit" class="btn">Kirim</button>
           </form>

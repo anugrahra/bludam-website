@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\pengaduan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class pengaduanController extends Controller
 {
@@ -21,7 +22,7 @@ class pengaduanController extends Controller
      */
     public function create()
     {
-        //
+        // return view('pengaduan');
     }
 
     /**
@@ -30,21 +31,24 @@ class pengaduanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'jenis_layanan'=>'required',
-            'nomor_pelanggan' =>'required',
-            'nama_pelapor'=>'required',
-            'nomor_telepon' => 'required',
-            'detail_pengaduan' => 'required'
+            'jenis_layanan_id'=>'required',
+            'pengaduan_no_sr' =>'required',
+            'pengaduan_pelapor'=>'required',
+            'pengaduan_kontak' => 'required',
+            'pengaduan_detail' => 'required'
         ]);
 
         $data = [
-            'jenis_layanan'=> request('jenis_layanan'),
-            'nomor_pelanggan' => request('nomor_pelanggan'),
-            'nama_pelapor'=>request('nama_pelapor'),
-            'nomor_telepon'=>request('nomor_telepon'),
-            'detail_pengaduan'=>request('detail_pengaduan'),
+            'jenis_layanan'=> request('jenis_layanan_id'),
+            'nomor_pelanggan' => request('pengaduan_no_sr'),
+            'nama_pelapor'=>request('pengaduan_pelapor'),
+            'nomor_telepon'=>request('pengaduan_kontak'),
+            'detail_pengaduan'=>request('pengaduan_detail'),
         ];
-        pengaduan::create($data);
+
+
+        $result = DB::connection('mysql_second')->select("CALL p_store_pengaduan(?, ?, ?, ?, ?)", [request('jenis_layanan_id'), request('pengaduan_no_sr'), request('pengaduan_pelapor'), request('pengaduan_kontak'), request('pengaduan_detail')]);
+
         return redirect()->to('formpengaduan')->with('success', 'Pengaduan anda berhasil dikirim!');
     }
 

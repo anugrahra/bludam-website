@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\digilapp;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pesanController;
 use App\Http\Controllers\pengaduanController;
@@ -24,7 +26,8 @@ Route::get('/about', function () {
 });
 
 Route::get('/formpengaduan', function () {
-    return view('pengaduan');
+    $jenis_layanan = DB::connection('mysql_second')->table('tr_jenis_layanan')->get();
+    return view('pengaduan')->with('data', $jenis_layanan);
 });
 
 Route::get('/under', function () {
@@ -38,3 +41,7 @@ Route::get('/admin', function () {
 Route::resource('pesan', pesanController::class);
 
 Route::resource('pengaduan', pengaduanController::class);
+
+// Route::get('/call-remote-stored-procedure', [digilapp::class, 'callRemoteStoredProcedure']);
+
+// Route::get('formpengaduan', [pengaduanController::class, 'create'])->name('create');
